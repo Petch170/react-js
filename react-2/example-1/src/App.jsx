@@ -5,20 +5,21 @@ function App() {
   const temp = 90;
   return (
     <div id="app">
-      <Header />
+      <Header header_tempereture ={temp}/>
       <Content temperature={temp} />
       <Footer />
     </div>
   );
 }
 
-function Header() {
+function Header(props) {
+  const temp1 = props.header_tempereture
   return (
     // Code for Header
     // <Header />
     <header>
       <span>Turn on / off</span>
-      <p>Current Temperature: XXX</p>
+      <p>Current Temperature: {temp1}</p>
     </header>
   );
 }
