@@ -1,16 +1,17 @@
 import React from "react";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  const temperature = 12;
+  const [temperature, setTemperature] = useState(40);
   return (
     <div id="app">
       <Header temp={temperature} />
       <Content tempContent={temperature} />
-      <Footer />
+      <Footer temperature={temperature} setTemperature={setTemperature}/>
     </div>
   );
-}
+  }
 
 function Header(props) {
   const tempInHeader = props.temp;
@@ -46,13 +47,17 @@ function Temperature(props) {
   );
 }
 
-function Footer() {
+function Footer({setTemperature,temperature}) {
   return (
     // Code for Footer
     // <Footer />
     <footer>
-      <button>Up</button>
-      <button>Down</button>
+      <button onClick={()=>setTemperature(
+        ++temperature //ใช้เป็น temperature+1 ก็ได้
+      )}>Up</button>
+      <button onClick={()=>setTemperature(
+        (prevTemperature)=>prevTemperature-1) // prev คือค่าเก่า
+      }>Down</button>
     </footer>
   );
 }
