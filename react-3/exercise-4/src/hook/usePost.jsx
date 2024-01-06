@@ -38,17 +38,17 @@ const postsData = [
 const usePost = () => {
   const [posts, setPosts] = useState(postsData);
 
-  const create = (data) => {
+  const create = (data) => { //create post ตั้งแต่บรรทัด41-56
     /**
      * Create a new post and add it to the list.
      * @param {id, author, avatar, time, content, image} data - The post data to be created.
      *
      */
-    if (typeof data !== "object") {
-      alert("Please input object of feed-post");
+    if (typeof data !== "object") {  //เช็คdata ว่าเป็นobj ไหม ต้องให้เป็นแบบแถว44{id,}
+      alert("Please input object of feed-post"); 
       return;
     }
-    for (const key of KEYS) {
+    for (const key of KEYS) { //check ฟิล บรรทัดที่3
       if (!(key in data)) {
         alert(`Missing field ${key}`);
         return;
